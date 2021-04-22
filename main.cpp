@@ -17,7 +17,7 @@ int main() {
     int number_of_Households;
 
     // number of people in one Household
-    int number_of_people_in_one_Household;
+    int mean_number_of_people_in_one_Household;
 
     //S->E the initial beta
     double beta1;
@@ -43,15 +43,15 @@ int main() {
     int tot_simulations = 100;
 
 
-    read_Parameters_From_File(inputpath, nSteps, number_of_Households, number_of_people_in_one_Household, beta1, beta2,
+    read_Parameters_From_File(inputpath, nSteps, number_of_Households, mean_number_of_people_in_one_Household, beta1, beta2,
                               threshold_above_which_one_to_two, threshold_under_which_two_to_one,
                               betaH, ny, gamma);
 
     if (beta1 != beta2) {
-        outputpath = "../InputOutput/gillespie_Household_lockdown";
+        outputpath = "../Output/gillespie_Household_lockdown";
     }
 
-    int N = number_of_Households * number_of_people_in_one_Household;
+    int N = number_of_Households * mean_number_of_people_in_one_Household;
 
 
     // Gillespie algorithm.
@@ -60,7 +60,7 @@ int main() {
     for (int i = 0; i < tot_simulations; i++) {
         std::vector<double> tempo;
         std::vector<double> time_lockdown;
-        std::vector<std::vector<int> > SEIR = gillespie_for_Households(nSteps, N, number_of_Households,
+        std::vector<std::vector<int> > SEIR = compartimental_model(nSteps, N, number_of_Households,
                                                                        number_of_people_in_one_Household, beta1, beta2,
                                                                        threshold_above_which_one_to_two,
                                                                        threshold_under_which_two_to_one, betaH, ny,

@@ -11,7 +11,7 @@
 #include "compartimental_model.h"
 
 std::vector<std::vector<int> >
-gillespie_for_Households(int nSteps, int N, int number_of_Households, int number_of_people_in_one_Household,
+compartimental_model(int nSteps, int N, int number_of_Households, int mean_number_of_people_in_one_Household,
                          double beta1, double beta2, double threshold_above_which_one_to_two,
                          double threshold_under_which_two_to_one, double betaH, double ny, double gamma,
                          std::vector<double> &temp, std::vector<double> &time_lockdown) {
@@ -19,6 +19,9 @@ gillespie_for_Households(int nSteps, int N, int number_of_Households, int number
     std::default_random_engine generator(time(0));
     //srand(time(0));
     //std::default_random_engine generator;
+
+
+    create_households(N,);
 
 
     std::vector<std::vector<int> > SEIR(4, std::vector<int>(1, 0));
