@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "myFunctions.h"
-#include "GillespieForHouseholds.h"
+#include "compartimental_model.h"
 
 int main() {
 

@@ -8,7 +8,7 @@
 #include <random>
 #include <time.h>
 #include "myFunctions.h"
-#include "GillespieForHouseholds.h"
+#include "compartimental_model.h"
 
 std::vector<std::vector<int> >
 gillespie_for_Households(int nSteps, int N, int number_of_Households, int number_of_people_in_one_Household,
